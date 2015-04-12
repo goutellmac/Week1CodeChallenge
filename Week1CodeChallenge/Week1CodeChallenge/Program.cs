@@ -10,7 +10,13 @@ namespace Week1CodeChallenge
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(DashInsert(454793));
+            Console.WriteLine(DashInsert(8675309));
+            Console.ReadKey();
+            Console.WriteLine(Yodaizer("Code I like"));
             //call FizzBuzz() in a loop from 0 to 20
+            Console.WriteLine(Yodaizer("Keep the coffee pot full"));
+            
             for (int i = 0; i <= 20; i++)
             {
                 Console.WriteLine(FizzBuzz(i));
@@ -24,12 +30,8 @@ namespace Week1CodeChallenge
             TextStats("look at this example!!!!");
             
 
-            Console.WriteLine(IsPrime(1));
-            Console.WriteLine(IsPrime(4));
-            Console.WriteLine(IsPrime(5));
-            Console.WriteLine(IsPrime(7));
-            Console.WriteLine(IsPrime(9));
-            Console.ReadKey();
+
+            
            
         }
         //declare function to Fizz or Buzz or FizzBuzz at appropriate times
@@ -70,16 +72,13 @@ namespace Week1CodeChallenge
         }
         public static string Yodaizer(string text)
         {
-            //List<string> burgers = new List<string>();
-            //for (int i = 0; i < foodList.Count; i++)
-            //{
-                //if (foodList.ElementAt(i).Contains("burger"))
-                //{
-                   // burgers.Add(foodList.ElementAt(i));
-                //}
-
-            //}
-            return string.Empty;
+            //declare a string array called sentence
+            //and populate that array using the text.Split() method / splitting at each space
+            string[] sentence = text.Split(' ');
+            
+            //concatenate all of the strings in the array, adding a space between each and return that string
+            return string.Join(" ", sentence.Reverse());
+           
         }
 
         //declare function to track various text statistics
@@ -140,13 +139,14 @@ namespace Week1CodeChallenge
                     //2 is a prime number
                     return true;
                 }
+                    //consider 1 a prime number
                 else if(number == 1)
                 {
                     return true;
                 }
                 else
                 {
-                    //every other number that is less than 3 is not a prime number 
+                    //every other number that is less than 3 is not a prime number because it is 0 or negative
                     return false;
                 }
             }
@@ -160,14 +160,14 @@ namespace Week1CodeChallenge
                     //if we reach this point then the number must be odd
                 else
                 {
-                    //declare div variable to used in loop
-                    int div;
+                    //declare divider variable to used in loop
+                    int i;
 
                     //begin testing at 3, continue testing until the number modulo div is not equal to 0, increment by 2
-                    for (div = 3; number % div != 0; div += 2)
+                    for (i = 3; number % i != 0; i += 2)
                         ;
 
-                        if (div == number)
+                        if (i == number)
                         {
                             // if theNum and div are equal it must be a prime
                             return true;
@@ -187,7 +187,57 @@ namespace Week1CodeChallenge
         }
         public static string DashInsert(int number)
         {
-            return string.Empty;
+            //declare ints to be tested
+            int num1;
+            int num2;
+            //convert the number entered to a string which can be looped through
+            //store in variable numberString
+            string numberString = number.ToString();
+            //declare new StringBuilder
+            System.Text.StringBuilder returnString = new System.Text.StringBuilder();
+  
+            //begin for loop to iterate through the string
+            for (int i = 0; i < numberString.Length - 1; i++)
+            {
+                //convert each char into a string which can then be parsed
+                string tempString = numberString[i].ToString();
+                
+                //store int in variable num 1
+                num1 = int.Parse(tempString);
+                //store int for num2
+                string tempString2 = numberString[i + 1].ToString();
+                num2 = int.Parse(tempString2);
+                
+                //if num1 is an even number or 0, simply add it to the return string
+                if (num1 == 0 || num1 % 2 == 0)
+                {
+                    returnString.Append(num1.ToString());
+                }
+                
+                //else num1 must be odd
+                else
+                {
+                    //if num1 and num2 are odd, then add a dash after num1
+                    if (num1 % 2 != 0 & num2 % 2 != 0)
+                    {
+                        returnString.Append(num1.ToString());
+                        returnString.Append("-");
+                       
+                    }
+                    else
+                    {
+                        //if num1 and num2 are not both odd, still add num1 to the end of the returnstring
+                        returnString.Append(num1.ToString());
+                    }
+                    
+                }
+                
+            }
+            //add the final character to the string.  This will always just be the character itself
+            //so I dont need to check for even or odd
+            string finalChar = numberString[numberString.Length - 1].ToString();
+            returnString.Append(finalChar.ToString());
+            return returnString.ToString();
         }
     }
 }
