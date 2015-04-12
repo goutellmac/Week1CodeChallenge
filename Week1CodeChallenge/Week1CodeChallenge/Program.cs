@@ -10,25 +10,7 @@ namespace Week1CodeChallenge
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(DashInsert(454793));
-            Console.WriteLine(DashInsert(8675309));
-
-            Console.WriteLine(Yodaizer("Code I like"));
-            //call FizzBuzz() in a loop from 0 to 20
-            Console.WriteLine(Yodaizer("Keep the coffee pot full"));
             
-            for (int i = 0; i <= 20; i++)
-            {
-                Console.WriteLine(FizzBuzz(i));
-            }
-            //call FizzBuzz() in a loop from 92 to 79
-            for (int i = 92; i >= 79; i--)
-            {
-                Console.WriteLine(FizzBuzz(i));
-            }
-            //call text stats with a three word sentence
-            TextStats("look at this example!!!!");
-            Console.ReadKey();
             
 
 
