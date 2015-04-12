@@ -12,7 +12,7 @@ namespace Week1CodeChallenge
         {
             Console.WriteLine(DashInsert(454793));
             Console.WriteLine(DashInsert(8675309));
-            Console.ReadKey();
+
             Console.WriteLine(Yodaizer("Code I like"));
             //call FizzBuzz() in a loop from 0 to 20
             Console.WriteLine(Yodaizer("Keep the coffee pot full"));
@@ -28,6 +28,7 @@ namespace Week1CodeChallenge
             }
             //call text stats with a three word sentence
             TextStats("look at this example!!!!");
+            Console.ReadKey();
             
 
 
